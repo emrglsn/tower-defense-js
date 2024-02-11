@@ -1,0 +1,116 @@
+.upgrade{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    height: 180px;
+    width: 180px;
+    background-image: url("../assets/banners/Carved_9Slides.png");
+    background-repeat: no-repeat;
+    background-size: 102%;
+    background-position: center;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    text-align: center;
+    color:aliceblue;
+    flex-direction: column;
+}
+.upgradeActive {
+    display: flex !important;
+}
+.upgrade .container{
+    height: 90%;
+    width: 80%;
+}
+    .upgrade .header {
+        height: 10%;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .upgrade .closebutton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 25px;
+        width: 25px;
+    }
+    .upgrade .info{
+        height: 75%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+        .upgrade .item{
+            height: 33%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-image: url("../assets/ribbons/Ribbon_Red_Connection_Down.png");
+            background-repeat: no-repeat;
+            background-size: 150% 350% ;
+            background-position: center;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .upgrade .image{
+            height: 100%;
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .upgrade .image img{
+            height: 25px;
+            width: 25px;
+        }
+        .upgrade .title{
+            height: 100%;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .upgrade .value{
+            height: 100%;
+            width: 30%;
+            display: flex;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+        .upgrade .nextvalue{
+            font-size: 12px;
+        }
+    .upgrade .button{
+        height: 15%;
+        width: 100%;
+        background-image: url("../assets/buttons/Button_Disable_3Slides.png");
+        background-repeat: no-repeat;
+        background-size: 100% 110%;
+        background-position:top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+    }
+    .upgrade .button:hover {
+        background-image: url("../assets/buttons/Button_Hover_3Slides.png");
+        background-repeat: no-repeat;
+        background-size: 100% 110%;
+        background-position:top;
+        color: #000;
+    }
+    .upgrade .button:active {
+        transform: translateY(-1px);
+        transform: scale(1.04);
+    }

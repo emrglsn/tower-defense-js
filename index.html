@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&family=Protest+Revolution&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/buildingbar.css" />
+    <link rel="stylesheet" href="./css/upgrade.css" />
+    <link rel="stylesheet" href="./css/gameover.css" />
+    <link rel="stylesheet" href="./css/sound.css" />
+    <link rel="stylesheet" href="./css/wave.css" />
+    <link rel="stylesheet" href="./css/icons.css" />
+
+    <style>
+      body,
+      html {
+        background: url("https://img.itch.zone/aW1nLzEwNDk2NzQ4LnBuZw==/original/eqMZWi.png")
+          center/cover fixed;
+        background-size: 190%;
+        display: flex;
+        font-family: "Protest Revolution", sans-serif;
+        font-style: normal;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        cursor: url("assets/pointers/default.png") 20 20, auto;
+      }
+      canvas {
+        margin-left: 230px;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div class="storeIcon"></div>
+    <div class="sound" onclick="soundController()" id="sound"></div>
+    <div class="buildingBar">
+      <div class="item" id="1" onclick="changeCurrentBuildingType(event)">
+        <div
+          style="background-image: url('./assets/towericons/tower1.png')"
+        ></div>
+      </div>
+      <div class="item" id="2" onclick="changeCurrentBuildingType(event)">
+        <div
+          style="background-image: url('./assets/towericons/tower2.png')"
+        ></div>
+      </div>
+      <div class="item" id="3" onclick="changeCurrentBuildingType(event)">
+        <div
+          style="background-image: url('./assets/towericons/tower3.png')"
+        ></div>
+        <div class="towersale" id="towersale1" onclick="unlockTower(event)">
+          25M
+          <img
+            src="./assets/icons/coin.png"
+            style="height: 10px; width: 10px; margin-left: 3px"
+          />
+        </div>
+      </div>
+      <div class="item" id="4" onclick="changeCurrentBuildingType(event)">
+        <div
+          style="background-image: url('./assets/towericons/tower4.png')"
+        ></div>
+        <div class="towersale" id="towersale2" onclick="unlockTower(event)">
+          320M
+          <img
+            src="./assets/icons/coin.png"
+            style="height: 10px; width: 10px; margin-left: 3px"
+          />
+        </div>
+      </div>
+      <div class="item" id="5" onclick="changeCurrentBuildingType(event)">
+        <div
+          style="background-image: url('./assets/towericons/tower5.png')"
+        ></div>
+        <div class="towersale" id="towersale3" onclick="unlockTower(event)">
+          2B
+          <img
+            src="./assets/icons/coin.png"
+            style="height: 10px; width: 10px; margin-left: 3px"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="coinsContainer">
+      <img src="./assets/icons/coin.png" />
+      <div id="coins"></div>
+    </div>
+
+    <div class="heartsContainer">
+      <img src="./assets/icons/heart.png" />
+      <div id="hearts"></div>
+    </div>
+
+    <div class="upgrade" id="upgrade">
+      <div class="container">
+        <div class="header">
+          <div class="leveltitle">Level 7</div>
+          <img
+            class="closebutton"
+            id="closebutton"
+            src="https://cdn3.iconfinder.com/data/icons/flat-office-icons-1/140/Artboard_1-6-256.png"
+          />
+        </div>
+        <div class="info">
+          <div class="item">
+            <div class="image">
+              <img
+                src="https://cdn4.iconfinder.com/data/icons/crime-and-security-24/64/57-256.png"
+              />
+            </div>
+            <div class="title">Damage</div>
+            <div class="value" id="damage">
+              <div>100</div>
+              <div class="nextvalue">+15</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img
+                src="https://cdn0.iconfinder.com/data/icons/let-s-promote-peace/32/peace_o-256.png"
+              />
+            </div>
+            <div class="title">Rate</div>
+            <div class="value" id="rate">
+              <div>100</div>
+              <div class="nextvalue">+15</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="image">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/4370/4370684.png"
+              />
+            </div>
+            <div class="title">Range</div>
+            <div class="value" id="range">
+              <div>100</div>
+              <div class="nextvalue">+15</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button" id="levelupbutton">
+          Level up
+          <img
+            src="https://cdn1.iconfinder.com/data/icons/lottery-7/64/cash_coins_currency_dollar_finance-256.png"
+            style="height: 10px; width: 10px"
+          />
+          <div id="upgradecost"></div>
+        </div>
+        <div class="button" id="destroybutton">
+          <img
+            style="height: 10px; width: 10px"
+            src="https://cdn0.iconfinder.com/data/icons/coronavirus-104/512/trash_garbage_bin_fly_-256.png"
+          />
+          Destroy
+        </div>
+      </div>
+    </div>
+
+    <div class="waveButton" id="waveButton">Next Wave 1</div>
+    <div class="autowave" id="autowave" onclick="autoWave()">Auto</div>
+
+    <div class="gameover" id="gameover">
+      <div class="title">GAME OVER</div>
+      <div class="info">Score : 197 Wave</div>
+    </div>
+
+    <audio id="backgroundAudio" autoplay loop>
+      <source src="./assets/audio/music.wav" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="buildingClick">
+      <source src="./assets/audio/buildingClick.wav" type="audio/mpeg" />
+    </audio>
+    <audio id="switch">
+      <source src="./assets/audio/buildingClick.wav" type="audio/mpeg" />
+    </audio>
+    <audio id="levelupAudio">
+      <source src="./assets/audio/levelup.wav" type="audio/mpeg" />
+    </audio>
+    <audio id="gameoverAudio">
+      <source src="./assets/audio/gameover.wav" type="audio/mpeg" />
+    </audio>
+    <audio id="unlocktowerAudio">
+      <source src="./assets/audio/unlocktower.wav" type="audio/mpeg" />
+    </audio>
+
+    <canvas></canvas>
+
+    <script src="./js/gameConfig.js"></script>
+    <script src="./js/classes/Background.js"></script>
+    <script src="./js/classes/PlacementTile.js"></script>
+    <script src="./js/classes/Enemy.js"></script>
+    <script src="./js/classes/Building.js"></script>
+    <script src="./js/classes/Bullet.js"></script>
+    <script src="./js/functions/soundController.js"></script>
+    <script src="./js/functions/formatNumber.js"></script>
+    <script src="./js/functions/adjustPlacementTiles.js"></script>
+    <script src="./js/functions/placementTilesController.js"></script>
+    <script src="./js/functions/setWaveType.js"></script>
+    <script src="./js/functions/nextWave.js"></script>
+    <script src="./js/functions/autoWave.js"></script>
+    <script src="./js/functions/changeCurrentBuildingType.js"></script>
+    <script src="./js/functions/findEnemyType.js"></script>
+    <script src="./js/functions/findBuildingType.js"></script>
+    <script src="./js/functions/autoWaveController.js"></script>
+    <script src="./js/functions/gameover.js"></script>
+    <script src="./js/functions/towerInfoController.js"></script>
+    <script src="./js/functions/unlockTower.js"></script>
+    <script src="./js/functions/enemyHealthController.js"></script>
+    <script src="./js/functions/buildingOp.js"></script>
+    <script src="./js/functions/canvasClick.js"></script>
+    <script src="./js/functions/mousemove.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

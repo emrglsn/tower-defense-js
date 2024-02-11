@@ -1,0 +1,62 @@
+.buildingBar {
+    position: absolute;
+    left: 170px;
+    top: 50px;
+    height: 300px;
+    width: 60px;
+  }
+  .buildingBar .item {
+    position: relative;
+    height: 20%;
+    width: 100%;
+    background-image: url("../assets//buttons/Button_Blue.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    cursor: url("../assets/pointers/pointer.png") 22 22,auto;
+  }
+  .buildingBar .item:hover {
+    background-image: url("../assets//buttons/Button_Hover.png");
+  }
+  .buildingBar .item div:nth-child(1) {
+    height: 50%;
+    width: 50%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+    background-position-y: 0;
+    margin-top: 7px;
+    pointer-events: none;
+  }
+  .towersale {
+    position: absolute;
+    height: 60px;
+    width: 120px;
+    background-image: url("../assets/ribbons/Ribbon_Yellow_3Slides.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0px 16px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  .towersaleoff {
+    animation: scaleAnimation 1s forwards;
+  }
+  @keyframes scaleAnimation {
+    0% {
+      transform: scale(1);
+    }
+    20% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }

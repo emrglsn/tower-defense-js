@@ -1,0 +1,32 @@
+.gameover {
+    height: 250px;
+    width: 500px;
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 500px;
+    background-image: url("../assets/banners/Banner_Horizontal.png");
+    background-repeat: no-repeat;
+    background-size: 140% 150%;
+    background-position: -100px -90px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+  .gameover .title {
+    height: 35%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 50px;
+    font-weight: bold;
+  }
+  .gameover .info {
+    height: 30%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
